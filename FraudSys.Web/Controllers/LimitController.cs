@@ -15,11 +15,12 @@ public class LimitController : Controller
 
     public IActionResult Create() => View();
 
+    public IActionResult Search() => View();
+
     [HttpPost]
     public async Task<IActionResult> Create(CreateLimitRequest request)
     {
         if (!ModelState.IsValid) return View(request);
-
         try
         {
             await _service.CreateAsync(request);
@@ -33,8 +34,6 @@ public class LimitController : Controller
         }
     }
 
-    public IActionResult Search() => View();
-
     public async Task<IActionResult> Details(string agency, string accountNumber)
     {
         try
@@ -44,7 +43,8 @@ public class LimitController : Controller
         }
         catch (KeyNotFoundException)
         {
-            return NotFound();
+            TempData["Error"] = "Conta não encontrada. Verifique a agência e o número da conta.";
+            return RedirectToAction(nameof(Search));
         }
     }
 
@@ -58,7 +58,6 @@ public class LimitController : Controller
     public async Task<IActionResult> Edit(string agency, string accountNumber, UpdateLimitRequest request)
     {
         if (!ModelState.IsValid) return View(request);
-
         await _service.UpdateAsync(agency, accountNumber, request);
         TempData["Success"] = "Limit atualizado com sucesso!";
         return RedirectToAction(nameof(Details), new { agency, accountNumber });
