@@ -10,12 +10,12 @@
         <form method="get" action="/Limit/Details">
           <div class="mb-3">
             <label class="form-label fw-medium">Agência</label>
-            <input name="agency" class="form-control" placeholder="Somente números. Ex: 0001" required pattern="\d+" title="Somente números são permitidos." />
+            <input name="agency" class="form-control" placeholder="Somente números. Ex: 0001" required maxlength="10" data-only-numbers="true" />
             <div class="form-text">Digite apenas números.</div>
           </div>
           <div class="mb-4">
             <label class="form-label fw-medium">Conta</label>
-            <input name="accountNumber" class="form-control" placeholder="Somente números. Ex: 1234567" required pattern="\d+" title="Somente números são permitidos." />
+            <input name="accountNumber" class="form-control" placeholder="Somente números. Ex: 1234567" required maxlength="15" data-only-numbers="true" />
             <div class="form-text">Digite apenas números.</div>
           </div>
           <button type="submit" class="btn btn-dark w-100 py-2">Consultar</button>

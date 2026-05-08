@@ -11,12 +11,12 @@
         <form asp-action="Validate" method="post">
           <div class="mb-3">
             <label asp-for="Agency" class="form-label fw-medium">Agência</label>
-            <input asp-for="Agency" class="form-control" placeholder="Somente números. Ex: 0001" />
+            <input asp-for="Agency" class="form-control" placeholder="Somente números. Ex: 0001" maxlength="10" data-only-numbers="true" />
             <span asp-validation-for="Agency" class="text-danger small"></span>
           </div>
           <div class="mb-3">
             <label asp-for="AccountNumber" class="form-label fw-medium">Conta</label>
-            <input asp-for="AccountNumber" class="form-control" placeholder="Somente números. Ex: 1234567" />
+            <input asp-for="AccountNumber" class="form-control" placeholder="Somente números. Ex: 1234567" maxlength="15" data-only-numbers="true" />
             <span asp-validation-for="AccountNumber" class="text-danger small"></span>
           </div>
           <div class="mb-4">
