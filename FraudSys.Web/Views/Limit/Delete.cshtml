@@ -1,0 +1,29 @@
+@model FraudSys.Domain.Entities.AccountLimit
+@{ ViewData["Title"] = "Remover Conta"; }
+
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <div class="card border-danger">
+      <div class="card-header py-3 text-danger">
+        <h5 class="mb-0">⚠️ Confirmar remoção</h5>
+      </div>
+      <div class="card-body p-4">
+        <p class="text-muted mb-3">Você está prestes a remover permanentemente a conta abaixo:</p>
+        <ul class="list-unstyled mb-4">
+          <li><span class="text-muted">CPF:</span> <strong>@Model.Document</strong></li>
+          <li><span class="text-muted">Agência:</span> <strong>@Model.Agency</strong></li>
+          <li><span class="text-muted">Conta:</span> <strong>@Model.AccountNumber</strong></li>
+          <li><span class="text-muted">Limite PIX:</span> <strong>@Model.PixLimit.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</strong></li>
+        </ul>
+        <form asp-action="Delete" method="post">
+          <input type="hidden" name="agency" value="@Model.Agency" />
+          <input type="hidden" name="accountNumber" value="@Model.AccountNumber" />
+          <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-danger px-4">Sim, remover</button>
+            <a href="javascript:history.back()" class="btn btn-outline-secondary">Cancelar</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

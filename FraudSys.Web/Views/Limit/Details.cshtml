@@ -1,0 +1,38 @@
+@model FraudSys.Domain.Entities.AccountLimit
+@{ ViewData["Title"] = "Detalhes da Conta"; }
+
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header py-3 d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Detalhes da conta</h5>
+        <span class="badge bg-dark rounded-pill">Ativa</span>
+      </div>
+      <div class="card-body p-4">
+        <table class="table table-borderless mb-0">
+          <tr>
+            <td class="text-muted fw-medium" style="width:40%">CPF</td>
+            <td>@Model.Document</td>
+          </tr>
+          <tr>
+            <td class="text-muted fw-medium">Agência</td>
+            <td>@Model.Agency</td>
+          </tr>
+          <tr>
+            <td class="text-muted fw-medium">Conta</td>
+            <td>@Model.AccountNumber</td>
+          </tr>
+          <tr>
+            <td class="text-muted fw-medium">Limite PIX</td>
+            <td class="fw-semibold fs-5">@Model.PixLimit.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</td>
+          </tr>
+        </table>
+      </div>
+      <div class="card-footer bg-white d-flex gap-2 p-3">
+        <a href="/Limit/Edit?agency=@Model.Agency&accountNumber=@Model.AccountNumber" class="btn btn-outline-dark btn-sm">Editar limite</a>
+        <a href="/Limit/Delete?agency=@Model.Agency&accountNumber=@Model.AccountNumber" class="btn btn-outline-danger btn-sm">Remover</a>
+        <a href="/PixTransaction/Validate" class="btn btn-dark btn-sm ms-auto" target="_self">Validar PIX →</a>
+      </div>
+    </div>
+  </div>
+</div>

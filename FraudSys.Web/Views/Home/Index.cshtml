@@ -1,0 +1,38 @@
+﻿@{
+  ViewData["Title"] = "Início";
+}
+
+<div class="row justify-content-center mt-5">
+  <div class="col-md-6 text-center">
+    <h1 class="display-6 fw-semibold mb-2">Gestão de Limite PIX</h1>
+    <p class="text-muted mb-4">Cadastre, consulte e valide transações PIX do Banco KRT.</p>
+    <div class="d-grid gap-2 col-8 mx-auto">
+      <a href="/Limit/Create" class="btn btn-dark btn-lg">+ Cadastrar conta</a>
+      <a href="/PixTransaction/Validate" class="btn btn-outline-dark btn-lg">Validar transação PIX</a>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-5">
+  <div class="col-md-4">
+    <div class="card p-4 text-center">
+      <div class="fs-1">🏦</div>
+      <h5 class="mt-2">Cadastro</h5>
+      <p class="text-muted small">Registre CPF, agência, conta e limite PIX.</p>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card p-4 text-center">
+      <div class="fs-1">🔍</div>
+      <h5 class="mt-2">Consulta</h5>
+      <p class="text-muted small">Busque dados e limite atual de qualquer conta.</p>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card p-4 text-center">
+      <div class="fs-1">✅</div>
+      <h5 class="mt-2">Validação PIX</h5>
+      <p class="text-muted small">Aprova ou nega transações com base no limite.</p>
+    </div>
+  </div>
+</div>
